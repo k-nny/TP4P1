@@ -3,7 +3,7 @@ using System.Reflection.Metadata;
 using System.Runtime.Intrinsics.X86;
 using TP4P1.Models.EntityFramework;
 
-namespace TD4P1.Models.EntityFramework
+namespace TP4P1.Models.EntityFramework
 {
     public partial class FilmRatingsDBContext : DbContext
     {
@@ -24,11 +24,11 @@ namespace TD4P1.Models.EntityFramework
 
         public static readonly ILoggerFactory MyLoggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseLoggerFactory(MyLoggerFactory)
-                        .EnableSensitiveDataLogging()
-                        .UseNpgsql("Server=localhost;port=5432;Database=NotationDB; uid=postgres; password=postgres;");
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+//        => optionsBuilder.UseLoggerFactory(MyLoggerFactory)
+//                        .EnableSensitiveDataLogging()
+//                        .UseNpgsql("Server=localhost;port=5432;Database=NotationDB; uid=postgres; password=postgres;");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

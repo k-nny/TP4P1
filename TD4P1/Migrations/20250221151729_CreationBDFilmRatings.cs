@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace TD4P1.Migrations
+namespace TP4P1.Migrations
 {
     /// <inheritdoc />
     public partial class CreationBDFilmRatings : Migration

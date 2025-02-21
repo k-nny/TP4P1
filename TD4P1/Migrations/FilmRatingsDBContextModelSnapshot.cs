@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using TD4P1.Models.EntityFramework;
+using TP4P1.Models.EntityFramework;
 
 #nullable disable
 
-namespace TD4P1.Migrations
+namespace TP4P1.Migrations
 {
     [DbContext(typeof(FilmRatingsDBContext))]
     partial class FilmRatingsDBContextModelSnapshot : ModelSnapshot
