@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TP4P1.Models.EntityFramework;
 
-[PrimaryKey("utl_id", "flm_id")]
+[PrimaryKey("UtilisateurId", "FilmId")]
 [Table("t_j_notation_not")]
 public partial class Notation
 {
@@ -20,14 +20,9 @@ public partial class Notation
     public int FilmId { get; set; }
 
     [Column("not_note")]
-    public int Note
-    {
-        get { return Note; }
-        set { 
-            if (value < 0 || value>5) throw new ArgumentOutOfRangeException("La note doit être comprise entre 0 et 5");
-            Note = value; 
-            }
-    }
+    [Range(0, 5,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+    public int Note { get; set; }
 
     [ForeignKey("UtilisateurId")]
     [InverseProperty(nameof(Utilisateur.NotesUtilisateur))]

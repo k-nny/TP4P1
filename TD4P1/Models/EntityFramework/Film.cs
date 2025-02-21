@@ -19,10 +19,10 @@ public partial class Film
     [StringLength(100), NotNull]
     public string? Titre { get; set; }
 
-    [Column("flm_resume", TypeName = "datetime")]
+    [Column("flm_resume")]
     public string? Resume { get; set; }
 
-    [Column("flm_datesortie")]
+    [Column("flm_datesortie", TypeName = "date")]
     public DateTime DateSortie { get; set; }
 
     [Column("flm_duree")]

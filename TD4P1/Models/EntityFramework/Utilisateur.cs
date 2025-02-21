@@ -57,7 +57,7 @@ public partial class Utilisateur
     [Column("utl_longitude")]
     public float? Longitude { get; set; }
 
-    [Column("utl_datecreation", TypeName = "datetime")]
+    [Column("utl_datecreation", TypeName = "date")]
     public DateTime DateCreation { get; set; }
 
     [InverseProperty(nameof(Notation.UtilisateurNotant))]

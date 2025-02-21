@@ -16,11 +16,11 @@ namespace TD4P1.Models.EntityFramework
         {
         }
 
-        public virtual DbSet<Notation> T_J_NOTATION_NOT { get; set; }
+        public virtual DbSet<Notation> Notation { get; set; }
 
-        public virtual DbSet<Utilisateur> T_E_UTILISATEUR_UTL { get; set; }
+        public virtual DbSet<Utilisateur> Utilisateur { get; set; }
 
-        public virtual DbSet<Film> T_E_FILM_FLM { get; set; }
+        public virtual DbSet<Film> Film { get; set; }
 
         public static readonly ILoggerFactory MyLoggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
 
