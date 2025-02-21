@@ -1,0 +1,6 @@
+@TD4P1_HostAddress = http://localhost:5235
+
+GET {{TD4P1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
