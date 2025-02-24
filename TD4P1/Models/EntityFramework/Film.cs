@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 
-namespace TP4P1.Models.EntityFramework;
+namespace TD4P1.Models.EntityFramework;
 
 [Table("t_e_film_flm")]
 [Index(nameof(Titre), IsUnique = false)]

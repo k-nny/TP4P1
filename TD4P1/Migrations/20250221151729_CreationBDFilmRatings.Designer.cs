@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using TP4P1.Models.EntityFramework;
+using TD4P1.Models.EntityFramework;
 
 #nullable disable
 
-namespace TP4P1.Migrations
+namespace TD4P1.Migrations
 {
     [DbContext(typeof(FilmRatingsDBContext))]
     [Migration("20250221151729_CreationBDFilmRatings")]
@@ -26,7 +26,7 @@ namespace TP4P1.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("TP4P1.Models.EntityFramework.Film", b =>
+            modelBuilder.Entity("TD4P1.Models.EntityFramework.Film", b =>
                 {
                     b.Property<int>("FilmId")
                         .ValueGeneratedOnAdd()
@@ -66,7 +66,7 @@ namespace TP4P1.Migrations
                     b.ToTable("t_e_film_flm", "public");
                 });
 
-            modelBuilder.Entity("TP4P1.Models.EntityFramework.Notation", b =>
+            modelBuilder.Entity("TD4P1.Models.EntityFramework.Notation", b =>
                 {
                     b.Property<int>("FilmId")
                         .HasColumnType("integer")
@@ -88,7 +88,7 @@ namespace TP4P1.Migrations
                     b.ToTable("t_j_notation_not", "public");
                 });
 
-            modelBuilder.Entity("TP4P1.Models.EntityFramework.Utilisateur", b =>
+            modelBuilder.Entity("TD4P1.Models.EntityFramework.Utilisateur", b =>
                 {
                     b.Property<int>("UtilisateurId")
                         .ValueGeneratedOnAdd()
@@ -167,16 +167,16 @@ namespace TP4P1.Migrations
                     b.ToTable("t_e_utilisateur_utl", "public");
                 });
 
-            modelBuilder.Entity("TP4P1.Models.EntityFramework.Notation", b =>
+            modelBuilder.Entity("TD4P1.Models.EntityFramework.Notation", b =>
                 {
-                    b.HasOne("TP4P1.Models.EntityFramework.Film", "FilmNote")
+                    b.HasOne("TD4P1.Models.EntityFramework.Film", "FilmNote")
                         .WithMany("NotesFilm")
                         .HasForeignKey("FilmId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("fk_notation_film");
 
-                    b.HasOne("TP4P1.Models.EntityFramework.Utilisateur", "UtilisateurNotant")
+                    b.HasOne("TD4P1.Models.EntityFramework.Utilisateur", "UtilisateurNotant")
                         .WithMany("NotesUtilisateur")
                         .HasForeignKey("UtilisateurId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -188,12 +188,12 @@ namespace TP4P1.Migrations
                     b.Navigation("UtilisateurNotant");
                 });
 
-            modelBuilder.Entity("TP4P1.Models.EntityFramework.Film", b =>
+            modelBuilder.Entity("TD4P1.Models.EntityFramework.Film", b =>
                 {
                     b.Navigation("NotesFilm");
                 });
 
-            modelBuilder.Entity("TP4P1.Models.EntityFramework.Utilisateur", b =>
+            modelBuilder.Entity("TD4P1.Models.EntityFramework.Utilisateur", b =>
                 {
                     b.Navigation("NotesUtilisateur");
                 });

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TP4P1.Models.EntityFramework;
+using TD4P1.Models.EntityFramework;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.AccessControl;
 using Microsoft.EntityFrameworkCore;
 
-namespace TP4P1.Models.EntityFramework;
+namespace TD4P1.Models.EntityFramework;
 
 [PrimaryKey("UtilisateurId", "FilmId")]
 [Table("t_j_notation_not")]

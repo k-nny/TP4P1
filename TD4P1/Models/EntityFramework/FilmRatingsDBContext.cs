@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
 using System.Runtime.Intrinsics.X86;
-using TP4P1.Models.EntityFramework;
+using TD4P1.Models.EntityFramework;
 
-namespace TP4P1.Models.EntityFramework
+namespace TD4P1.Models.EntityFramework
 {
     public partial class FilmRatingsDBContext : DbContext
     {

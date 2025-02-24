@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TP4P1.Models.EntityFramework;
+using TD4P1.Models.EntityFramework;
 
-namespace TP4P1.Controllers
+namespace TD4P1.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UtilisateursController : ControllerBase
     {
@@ -29,9 +29,22 @@ namespace TP4P1.Controllers
 
         // GET: api/Utilisateurs/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Utilisateur>> GetUtilisateur(int id)
+        public async Task<ActionResult<Utilisateur>> GetUtilisateurById(int id)
         {
             var utilisateur = await _context.Utilisateur.FindAsync(id);
+
+            if (utilisateur == null)
+            {
+                return NotFound();
+            }
+
+            return utilisateur;
+        }
+        // GET: api/Utilisateurs/clilleymd@last.fm
+        [HttpGet("{email}")]
+        public async Task<ActionResult<Utilisateur>> GetUtilisateurByEmail(string email)
+        {
+            var utilisateur = await _context.Utilisateur.Where(u => u.Mail.Contains(email)).FirstAsync();
 
             if (utilisateur == null)
             {

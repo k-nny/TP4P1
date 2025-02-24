@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Intrinsics.X86;
 using Microsoft.EntityFrameworkCore;
 
-namespace TP4P1.Models.EntityFramework;
+namespace TD4P1.Models.EntityFramework;
 
 [Table("t_e_utilisateur_utl")]
 [Index(nameof(Mail), IsUnique = true)]
@@ -25,14 +25,20 @@ public partial class Utilisateur
     [StringLength(100)]
     public string? Prenom { get; set; }
 
+    [Required]
     [Column("utl_mobile", TypeName = "char(10)")]
+    [RegularExpression(@"^[0-9]{9}$", ErrorMessage = "Le téléphone doit être composé de 10 chiffres")]
     public string? Mobile { get; set; }
 
+    [Required]
     [Column("utl_mail")]
-    [StringLength(100), NotNull, ]
+    [EmailAddress(ErrorMessage = "La longueur d’un email doit être comprise entre 6 et 100.")]
+    [StringLength(100, MinimumLength = 6, ErrorMessage = "La longueur d’un email doit être comprise entre 6 et 100 caractères.")]
     public string? Mail { get; set; }
 
+    [Required]
     [Column("utl_pwd")]
+    [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,20}$", ErrorMessage ="Le mot de passe doit contenir entre 12 et 20 caractères avec au moins 1 lettre majuscule, 1 chiffre et 1 caractère spécial")]
     [StringLength(64), NotNull]
     public string? Pwd { get; set; }
 
@@ -41,6 +47,7 @@ public partial class Utilisateur
     public string? Rue { get; set; }
 
     [Column("utl_cp", TypeName ="char(5)")]
+    [RegularExpression(@"^[0-9]{5}$", ErrorMessage = "Le code postal doit contenir 5 chiffres")]
     public string? CodePostal { get; set; }
 
     [Column("utl_ville")]
