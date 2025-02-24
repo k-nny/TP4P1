@@ -25,7 +25,6 @@ public partial class Utilisateur
     [StringLength(100)]
     public string? Prenom { get; set; }
 
-    [Required]
     [Column("utl_mobile", TypeName = "char(10)")]
     [RegularExpression(@"^[0-9]{9}$", ErrorMessage = "Le téléphone doit être composé de 10 chiffres")]
     public string? Mobile { get; set; }
