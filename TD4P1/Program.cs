@@ -1,11 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using TD4P1.Models.DataManager;
 using TD4P1.Models.EntityFramework;
+using TD4P1.Models.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddDbContext<FilmRatingsDBContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("FilmRatingsDbContext")));
-
+builder.Services.AddScoped<IDataRepository<Utilisateur>, UtilisateurManager>();
 // Add services to the container.
 
 builder.Services.AddControllers();
